@@ -10,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import javax.servlet.http.HttpSession;
 
@@ -61,6 +62,16 @@ public class MemberController {
             return "silbaram/member/login";
         }
         session.setAttribute("mid", mid);
+        return "redirect:/silbaram/index";
+    }
+
+    @PostMapping("/logout")
+    public String logout(HttpServletRequest request) {
+        //세션을 삭제
+        HttpSession session = request.getSession(false);
+        if(session != null) {
+            session.invalidate();
+        }
         return "redirect:/silbaram/index";
     }
 
