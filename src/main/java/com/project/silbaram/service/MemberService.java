@@ -11,8 +11,7 @@ public interface MemberService {
 
     boolean addMember(MemberDTO memberDTO);
 
-    int login(String userId, String password);
-
+    Integer login(String userId, String password);
 
 
 }

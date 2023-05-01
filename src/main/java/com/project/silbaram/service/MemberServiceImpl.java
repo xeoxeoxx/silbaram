@@ -29,13 +29,16 @@ public class MemberServiceImpl implements MemberService{
     }
 
     @Override
-    public int login(String userId, String password) {
+    public Integer login(String userId, String password) {
         MemberVO memberVO = memberDAO.getMemberById(userId);
+        if (memberVO == null) {
+            return null;
+        }
         MemberDTO memberDTO = modelMapper.map(memberVO, MemberDTO.class);
         if(memberDTO.getPassword().equals(password)) {
             return memberDTO.getMid();
         }
-        return Integer.parseInt(null);
+        return null;
     }
 
 

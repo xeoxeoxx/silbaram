@@ -5,10 +5,12 @@ import com.project.silbaram.service.MemberServiceImpl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
@@ -40,24 +42,20 @@ public class MemberController {
     }
 
     @GetMapping("/login")
-    public String toLoginPage(HttpSession session) {
-        Integer mid = (Integer) session.getAttribute("mid");
-        log.info("mid:"+mid);
-        if(mid == null) {
-            return "/project_ex/login";
-        }
-        return "redirect:/project_ex/index";
+    public String login() {
+        return "/project_ex/login";
     }
 
     @PostMapping("/login")
-    public String login(String userId, String password, HttpSession session) {
+    public String login(@RequestParam String userId, @RequestParam String password, HttpSession session,
+                        Model model) {
         Integer mid = memberService.login(userId, password);
         if(mid == null) {
+            model.addAttribute("msg","아이디와 비밀번호를 확인해주세요");
             return "/project_ex/login";
         }
         session.setAttribute("mid", mid);
         return "redirect:/project_ex/hello";
     }
-
 
 }
