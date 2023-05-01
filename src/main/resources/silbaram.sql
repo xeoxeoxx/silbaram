@@ -13,5 +13,6 @@ CREATE TABLE `member` (
                           `socialLogin` BOOLEAN NULL DEFAULT FALSE,   -- 소셜로그인 여부
                           `isAdmin` BOOLEAN NOT NULL DEFAULT FALSE,   -- 관리자 여부
                           `regDate` DATETIME NULL DEFAULT NOW(),   -- 가입일자
+                          `uuid` varchar(50) DEFAULT NULL, -- 쿠키(자동로그인)
                           PRIMARY KEY (`mid`)
 );

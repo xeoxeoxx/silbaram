@@ -19,6 +19,16 @@
         SELECT COUNT(*) FROM `member` WHERE `userId` = #{userId}
     </select>
 
+    <update id="updateUuid" parameterType="String, String">
+        UPDATE `member` SET `uuid` = #{uuid} WHERE `mid` = #{userId}
+    </update>
+
+    <select id="selectUuid" resultType="com.project.silbaram.vo.MemberVO">
+        SELECT `mid`,`mpw`, `mname`, `uuid` FROM `member` WHERE `uuid` = #{uuid}
+    </select>
+
+
+
 
 
 </mapper>

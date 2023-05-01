@@ -15,5 +15,9 @@ public interface MemberService {
 
     boolean isDuplicatedUserId(String userId);
 
+    void updateUuid(String mid, String uuid);
+
+    MemberDTO getByUuid(String uuid);
+
 
 }

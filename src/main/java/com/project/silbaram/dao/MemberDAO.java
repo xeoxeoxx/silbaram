@@ -16,6 +16,10 @@ public interface MemberDAO {
     // 중복아이디 체크
     int countMemberByUserId(String userId);
 
+    // 자동로그인
+    void updateUuid(String mid, String uuid);
+    MemberVO selectUuid(String uuid);
+
 
     // 회원 정보 수정
     void updateMember(MemberDTO memberDTO);

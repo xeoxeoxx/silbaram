@@ -35,6 +35,18 @@ public class MemberServiceImpl implements MemberService{
     }
 
     @Override
+    public void updateUuid(String mid, String uuid) {
+        memberDAO.updateUuid(mid,uuid);
+    }
+
+    @Override
+    public MemberDTO getByUuid(String uuid) {
+        MemberVO memberVO = memberDAO.selectUuid(uuid);
+        MemberDTO memberDTO = modelMapper.map(memberVO, MemberDTO.class);
+        return memberDTO;
+    }
+
+    @Override
     public Integer login(String userId, String password) {
         MemberVO memberVO = memberDAO.getMemberById(userId);
         if (memberVO == null) {

@@ -41,4 +41,6 @@ public class MemberDTO {
     private boolean socialLogin;
     @NotNull
     private boolean isAdmin;
+
+    private String uuid;
 }

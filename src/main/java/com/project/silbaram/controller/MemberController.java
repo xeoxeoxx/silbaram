@@ -57,6 +57,9 @@ public class MemberController {
     public String login(@RequestParam String userId, @RequestParam String password, HttpSession session,
                         Model model) {
         Integer mid = memberService.login(userId, password);
+
+
+
         if(mid == null) {
             model.addAttribute("msg","아이디와 비밀번호를 확인해주세요");
             return "silbaram/member/login";
