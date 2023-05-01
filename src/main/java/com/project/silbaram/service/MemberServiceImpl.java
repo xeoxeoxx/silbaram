@@ -29,6 +29,12 @@ public class MemberServiceImpl implements MemberService{
     }
 
     @Override
+    public boolean isDuplicatedUserId(String userId) {
+        int count = memberDAO.countMemberByUserId(userId);
+        return count > 0;
+    }
+
+    @Override
     public Integer login(String userId, String password) {
         MemberVO memberVO = memberDAO.getMemberById(userId);
         if (memberVO == null) {
@@ -40,6 +46,8 @@ public class MemberServiceImpl implements MemberService{
         }
         return null;
     }
+
+
 
 
 }

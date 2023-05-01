@@ -13,5 +13,7 @@ public interface MemberService {
 
     Integer login(String userId, String password);
 
+    boolean isDuplicatedUserId(String userId);
+
 
 }

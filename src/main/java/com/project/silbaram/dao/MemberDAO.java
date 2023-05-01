@@ -13,6 +13,9 @@ public interface MemberDAO {
     // 로그인
     MemberVO getMemberById(String userId);
 
+    // 중복아이디 체크
+    int countMemberByUserId(String userId);
+
 
     // 회원 정보 수정
     void updateMember(MemberDTO memberDTO);
