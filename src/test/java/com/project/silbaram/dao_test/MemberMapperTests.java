@@ -1,7 +1,7 @@
 package com.project.silbaram.dao_test;
 
-import com.example.project_ex.dao.MemberDAO;
-import com.example.project_ex.vo.MemberVO;
+import com.project.silbaram.dao.MemberDAO;
+import com.project.silbaram.vo.MemberVO;
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
