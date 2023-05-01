@@ -33,13 +33,17 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
-    implementation group: 'org.modelmapper', name:'modelmapper', version:'3.0.0'
-    implementation group: 'org.hibernate', name: 'hibernate-validator', version:'6.2.1.Final'
-
+    // 롬복
     compileOnly 'org.projectlombok:lombok'
-    testCompileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+    testCompileOnly 'org.projectlombok:lombok'
     testAnnotationProcessor 'org.projectlombok:lombok'
+
+
+    // ModelMapper
+    implementation group: 'org.modelmapper', name: 'modelmapper', version: '3.0.0'
+    // validate
+    implementation group: 'org.hibernate', name: 'hibernate-validator', version: '6.2.1.Final'
 
 }
 

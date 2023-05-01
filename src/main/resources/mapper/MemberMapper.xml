@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.project_ex.dao.MemberDAO">
+<mapper namespace="com.project.silbaram.dao.MemberDAO">
 
 
     <insert id="insertMember">
@@ -11,7 +11,7 @@
                 #{email}, #{zipcode}, #{address}, #{socialLogin}, #{isAdmin})
     </insert>
 
-    <select id="getMemberById" resultType="com.example.project_ex.vo.MemberVO">
+    <select id="getMemberById" resultType="com.project.silbaram.vo.MemberVO">
         SELECT * FROM `member` WHERE `userId` = #{userId}
     </select>
 
