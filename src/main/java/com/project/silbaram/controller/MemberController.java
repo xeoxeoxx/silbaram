@@ -19,43 +19,43 @@ import javax.servlet.http.HttpSession;
 @Controller
 @Log4j2
 @RequiredArgsConstructor
-@RequestMapping("/project_ex")
+@RequestMapping("/silbaram")
 public class MemberController {
     private final MemberServiceImpl memberService;
 
-    @GetMapping("/sign_up")
+    @GetMapping("/signup/signup")
     public void addMemberGET() {
         log.info("addMemberGET...");
     }
-    @PostMapping("/sign_up")
+    @PostMapping("/signup/signup")
     public String addMemberPOST(@Valid MemberDTO memberDTO, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
         log.info("addMemberPOST...");
         if (bindingResult.hasErrors()) {
             log.info("has error...");
             log.info(bindingResult.getAllErrors());
             redirectAttributes.addFlashAttribute("errors", bindingResult.getAllErrors());
-            return "redirect:/project_ex/sign_up";
+            return "redirect:/silbaram/signup/signup";
         }
         log.info(memberDTO);
         memberService.addMember(memberDTO);
-        return "redirect:/project_ex/index";
+        return "redirect:/silbaram/index";
     }
 
-    @GetMapping("/login")
+    @GetMapping("/member/login")
     public String login() {
-        return "/project_ex/login";
+        return "silbaram/member/login";
     }
 
-    @PostMapping("/login")
+    @PostMapping("/member/login")
     public String login(@RequestParam String userId, @RequestParam String password, HttpSession session,
                         Model model) {
         Integer mid = memberService.login(userId, password);
         if(mid == null) {
             model.addAttribute("msg","아이디와 비밀번호를 확인해주세요");
-            return "/project_ex/login";
+            return "silbaram/member/login";
         }
         session.setAttribute("mid", mid);
-        return "redirect:/project_ex/hello";
+        return "redirect:/silbaram/index";
     }
 
 }
